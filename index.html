@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Tempest System Interface</title>
+<link rel="icon" href="slime.png" />
+<style>
+@keyframes drive {
+  0% { transform: translateX(-150%); }
+  100% { transform: translateX(150%); }
+}
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+@keyframes float {
+  0%,100% { transform: translateY(0); }
+  50% { transform: translateY(-15px); }
+}
+@keyframes slash {
+  0% { opacity: 0; transform: scale(3) rotate(0deg); }
+  100% { opacity: 1; transform: scale(1) rotate(360deg); }
+}
+@keyframes circle {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+} {
+  0% { opacity: 0; transform: scale(3) rotate(0deg); }
+  100% { opacity: 1; transform: scale(1) rotate(360deg); }
+}
+
+body {
+  margin: 0;
+  font-family: 'Segoe UI', sans-serif;
+  background: black;
+  color: #e6f7ff;
+  overflow-x: hidden;
+}
+
+
+
+
+
+#main {
+  display: block;
+  animation: fadeIn 2s ease forwards;
+}
+
+.hero {
+  min-height: 100vh;
+  background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.8)), url('thumb-1920-978847.jpg');
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.hero img {
+  width: 180px;
+  animation: float 3s ease-in-out infinite;
+}
+
+.section {
+  padding: 80px 20px;
+  max-width: 900px;
+  margin: auto;
+  text-align: center;
+}
+
+.skills {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px,1fr));
+  gap: 20px;
+}
+
+.card {
+  background: rgba(0,50,80,0.7);
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 0 20px rgba(0,200,255,0.4);
+}
+
+.buttons {
+  margin-top: 40px;
+}
+
+button {
+  font-size: 1.3rem;
+  padding: 15px 30px;
+  margin: 10px;
+  border-radius: 30px;
+  border: none;
+  cursor: pointer;
+}
+
+#yes {
+  background: linear-gradient(135deg, #00d4ff, #0077ff);
+  color: white;
+}
+
+#no {
+  background: #555;
+  color: white;
+  position: relative;
+}
+
+#seal {
+  display: none;
+  font-size: 2rem;
+  margin-top: 30px;
+  animation: slash 1.5s ease forwards;
+}
+
+.magic-circle {
+  width: 260px;
+  height: 260px;
+  border: 2px dashed rgba(0,200,255,0.6);
+  border-radius: 50%;
+  position: absolute;
+  animation: circle 6s linear infinite;
+  box-shadow: 0 0 40px rgba(0,200,255,0.5);
+  pointer-events: none; /* IMPORTANT: allows clicking buttons */
+}
+
+.signature {
+  position: fixed;
+  bottom: 10px;
+  right: 15px;
+  font-size: 0.8rem;
+  opacity: 0.6;
+}
+@keyframes scrollOpen {
+  0% { transform: scaleY(0); opacity: 0; }
+  100% { transform: scaleY(1); opacity: 1; }
+}
+
+.page2 {
+  display: none;
+  min-height: 100vh;
+  background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.8)), url('download-1.jpg');
+  background-size: cover;
+  background-position: center;
+  color: #e6f7ff;
+  padding: 60px 20px;
+}
+
+.scroll {
+  max-width: 700px;
+  margin: 80px auto;
+  background: rgba(10,30,60,0.85);
+  border-radius: 20px;
+  padding: 40px;
+  transform-origin: top;
+  animation: scrollOpen 1.2s ease forwards;
+  box-shadow: 0 0 60px rgba(0,200,255,0.6);
+}
+
+.scroll h2 {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.scroll p {
+  font-size: 1.2rem;
+  line-height: 1.7;
+}
+
+.scroll .heart {
+  text-align: center;
+  font-size: 2.5rem;
+  margin-top: 20px;
+}
+</style>
+</head>
+<body>
+
+
+</div>
+
+<div id="main">
+  <section class="hero">
+    <img src="slime.png" alt="Rimuru Slime" />
+    <h1>Tempest System Interface</h1>
+    <p>Unique Skill Detected: Eternal Partnership</p>
+  </section>
+
+  <section class="section">
+    <h2>Unique Skills</h2>
+    <div class="skills">
+      <div class="card">Predator – Absolute Protection</div>
+      <div class="card">Great Sage – Eternal Guidance</div>
+      <div class="card">Raphael – Perfect Harmony</div>
+    </div>
+  </section>
+
+  <section class="section">
+    <h2>Valentine Contract</h2>
+    <p>Will you become the Ciel to my Rimuru and rule Tempest together?</p>
+    <div class="buttons" style="position:relative; display:inline-block;">
+      <div class="magic-circle"></div>
+      <button id="yes">Yes 💙</button>
+      <button id="no">No ❌</button>
+    </div>
+    <div id="seal">✨ CONTRACT SEALED ✨</div>
+  </section>
+</div>
+
+<section class="page2" id="page2">
+  <div class="scroll">
+    <h2>📜 Eternal Contract Confirmed</h2>
+    <p>
+      From this moment forward, my heart is bound to yours.
+      Like Rimuru and Ciel, we grow stronger side by side —
+      through every battle, every laugh, every quiet moment.
+    </p>
+    <p>
+      I choose you today, tomorrow, and in every timeline.
+      I will love you forever.
+    </p>
+    <div class="heart">💙✨</div>
+  </div>
+</section>
+
+<div class="signature">mooncat19</div>
+
+<script>
+// DEBUG-SAFE BUTTON HANDLING
+window.addEventListener('DOMContentLoaded', () => {
+  const yesBtn = document.getElementById('yes');
+  const noBtn = document.getElementById('no');
+  const main = document.getElementById('main');
+  const page2 = document.getElementById('page2');
+  const seal = document.getElementById('seal');
+
+  if (!yesBtn) {
+    console.error('YES BUTTON NOT FOUND');
+    return;
+  }
+
+  if (noBtn) {
+    noBtn.addEventListener('mouseover', () => {
+      const x = Math.random() * 200 - 100;
+      const y = Math.random() * 200 - 100;
+      noBtn.style.transform = `translate(${x}px, ${y}px)`;
+    });
+  }
+
+  yesBtn.addEventListener('click', () => {
+    const slash = document.createElement('div');
+    slash.innerText = '⚔️';
+    slash.style.position = 'fixed';
+    slash.style.fontSize = '5rem';
+    slash.style.top = '50%';
+    slash.style.left = '50%';
+    slash.style.transform = 'translate(-50%, -50%)';
+    slash.style.animation = 'slash 1s ease forwards';
+    slash.style.zIndex = '9999';
+    document.body.appendChild(slash);
+
+    if (noBtn) noBtn.remove();
+    seal.style.display = 'block';
+
+    
+  if (intro) intro.remove();
+  document.getElementById('main').style.display = 'block';
+}, 1400);
+    }, 1200);
+  });
+});
+const noBtn = document.getElementById('no');
+noBtn.addEventListener('mouseover', () => {
+  const x = Math.random() * 200 - 100;
+  const y = Math.random() * 200 - 100;
+  noBtn.style.transform = `translate(${x}px, ${y}px)`;
+});
+
+document.getElementById('yes').addEventListener('click', () => {
+  const slash = document.createElement('div');
+  slash.innerText = '⚔️';
+  slash.style.position = 'fixed';
+  slash.style.fontSize = '5rem';
+  slash.style.top = '50%';
+  slash.style.left = '50%';
+  slash.style.transform = 'translate(-50%, -50%)';
+  slash.style.animation = 'slash 1s ease forwards';
+  document.body.appendChild(slash);
+
+  if (noBtn) noBtn.remove();
+  document.getElementById('seal').style.display = 'block';
+
+  setTimeout(() => {
+    document.getElementById('main').style.display = 'none';
+    document.getElementById('page2').style.display = 'block';
+    window.scrollTo(0, 0);
+  }, 1200);
+});
+  slash.innerText = '⚔️';
+  slash.style.position = 'fixed';
+  slash.style.fontSize = '5rem';
+  slash.style.top = '50%';
+  slash.style.left = '50%';
+  slash.style.transform = 'translate(-50%, -50%)';
+  slash.style.animation = 'slash 1s ease forwards';
+  document.body.appendChild(slash);
+
+  noBtn.remove();
+  document.getElementById('seal').style.display = 'block';
+});('click', () => {
+  noBtn.remove();
+  document.getElementById('seal').style.display = 'block';
+});
+
+setTimeout(() => {
+  document.getElementById('truckkun').style.display = 'none';
+  document.getElementById('main').style.display = 'block';
+}, 3200);
+</script>
+
+</body>
+</html>
